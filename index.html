@@ -25,7 +25,7 @@
       border-radius: 12px;
     }
 
-    /* LOGO TOP-LEFT */
+    /* BRANDING TOP-LEFT */
     .brand {
       position: absolute;
       top: 20px;
@@ -34,37 +34,33 @@
       align-items: center;
     }
     .brand-icon {
-      width: 3rem;               /* larger square */
+      width: 3rem;
       height: 3rem;
       background: #ff4444;
       color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2rem;           /* bigger “B” */
+      font-size: 2.4rem;    /* occupy more space */
       font-weight: bold;
       border-radius: 4px;
     }
     .brand-text {
       color: #fff;
-      font-size: 1rem;           /* smaller text */
+      font-size: 2.4rem;    /* same size as B */
       font-weight: bold;
       margin-left: 0.5rem;
     }
 
-    /* HERO - TWO-COLUMN EVEN ON MOBILE */
+    /* HERO (desktop: two-column; mobile: stacked with image after H1) */
     .hero {
       display: flex;
-      flex-direction: row;
-      align-items: center;
       gap: 30px;
       margin-top: 20px;
       margin-bottom: 60px;
-      overflow-x: auto;          /* allow horizontal scroll if needed */
     }
-    .hero-text,
-    .hero-img {
-      flex: 0 0 48%;             /* roughly half each */
+    .hero-text, .hero-img-desktop {
+      flex: 0 0 48%;
       min-width: 48%;
     }
     .hero-text h1 {
@@ -72,21 +68,19 @@
       line-height: 1.2;
       margin-bottom: 16px;
     }
-    .hero-text h1 .h1-white {
-      color: #fff;
-    }
-    .hero-text h1 .h1-red {
-      color: #ff4444;
-    }
+    .hero-text h1 .h1-white { color: #fff; }
+    .hero-text h1 .h1-red   { color: #ff4444; }
     .hero-text p {
       font-size: 1.1rem;
       margin-bottom: 24px;
     }
-    .hero-img img {
+    .hero-img-desktop img,
+    .hero-img-mobile img {
       width: 100%;
       border-radius: 8px;
       box-shadow: 0 0 10px #00aaff;
     }
+    .hero-img-mobile { display: none; }
 
     /* CTA BUTTON */
     .cta {
@@ -100,9 +94,7 @@
       box-shadow: 0 0 10px #ff4444;
       transition: box-shadow 0.3s ease;
     }
-    .cta:hover {
-      box-shadow: 0 0 20px #ff4444;
-    }
+    .cta:hover { box-shadow: 0 0 20px #ff4444; }
 
     /* FEATURES GRID */
     .features {
@@ -115,7 +107,7 @@
     }
     .feature-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
     .feature-item {
@@ -131,6 +123,19 @@
       content: '✔';
       color: #ff4444;
       margin-right: 8px;
+    }
+    .feature-item details {
+      background: none;
+      box-shadow: none;
+    }
+    .feature-item summary {
+      cursor: pointer;
+      font-weight: bold;
+      list-style: none;
+    }
+    .feature-item details p {
+      margin: 8px 0 0 0;
+      font-size: 0.95rem;
     }
 
     /* PRICING */
@@ -177,30 +182,53 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    /* RESPONSIVE: stack hero, show mobile image */
+    @media (max-width: 600px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-img-desktop {
+        display: none;
+      }
+      .hero-img-mobile {
+        display: block;
+        margin-bottom: 24px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- LOGO TOP-LEFT -->
+    <!-- Branding -->
     <div class="brand">
       <div class="brand-icon">B</div>
       <div class="brand-text">BizBuild</div>
     </div>
 
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-text">
         <h1>
           <span class="h1-white">Land Interviews Faster with AI-</span><br>
           <span class="h1-red">Powered Resume Kit</span>
         </h1>
-        <p>Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.</p>
-        <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Get Instant Access – $19</a>
+        <div class="hero-img-mobile">
+          <img src="hero-banner.jpg" alt="AI Resume Kit Preview">
+        </div>
+        <p>
+          Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.
+        </p>
+        <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">
+          Get Instant Access – $19
+        </a>
       </div>
-      <div class="hero-img">
+      <div class="hero-img-desktop">
         <img src="hero-banner.jpg" alt="AI Resume Kit Preview">
       </div>
     </section>
 
+    <!-- Features / What's Inside -->
     <section class="features">
       <h2>What’s Inside</h2>
       <div class="feature-list">
@@ -209,15 +237,28 @@
         <div class="feature-item"><p>LinkedIn Optimization Guide</p></div>
         <div class="feature-item"><p>Job Application Tracker</p></div>
         <div class="feature-item"><p>ChatGPT Prompt Pack</p></div>
+        <div class="feature-item">
+          <details>
+            <summary>Interview Success Blueprint (60-page eBook)</summary>
+            <p>Special Topics</p>
+            <p>Personal Growth</p>
+            <p>Motivation</p>
+            <p>Career Development</p>
+          </details>
+        </div>
       </div>
     </section>
 
+    <!-- Pricing -->
     <section class="pricing">
       <h2>All Yours for One Price</h2>
       <div class="price">$19</div>
-      <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Buy Now</a>
+      <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">
+        Buy Now
+      </a>
     </section>
 
+    <!-- FAQ -->
     <section class="faq">
       <h2>Frequently Asked Questions</h2>
       <details>
@@ -234,7 +275,9 @@
       </details>
     </section>
 
+    <!-- Footer -->
     <footer>© 2025 BizBuild. All rights reserved.</footer>
   </div>
 </body>
 </html>
+```

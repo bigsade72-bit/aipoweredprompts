@@ -34,36 +34,38 @@
       align-items: center;
     }
     .brand-icon {
-      width: 2.4rem;
-      height: 2.4rem;
+      width: 3rem;               /* larger square */
+      height: 3rem;
       background: #ff4444;
       color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.4rem;
+      font-size: 2rem;           /* bigger “B” */
       font-weight: bold;
       border-radius: 4px;
     }
     .brand-text {
       color: #fff;
-      font-size: 1.4rem;
+      font-size: 1rem;           /* smaller text */
       font-weight: bold;
-      margin-left: 0.6rem;
+      margin-left: 0.5rem;
     }
 
-    /* HERO */
+    /* HERO - TWO-COLUMN EVEN ON MOBILE */
     .hero {
       display: flex;
+      flex-direction: row;
       align-items: center;
-      flex-wrap: wrap;
       gap: 30px;
       margin-top: 20px;
       margin-bottom: 60px;
+      overflow-x: auto;          /* allow horizontal scroll if needed */
     }
-    .hero-text {
-      flex: 1;
-      min-width: 260px;
+    .hero-text,
+    .hero-img {
+      flex: 0 0 48%;             /* roughly half each */
+      min-width: 48%;
     }
     .hero-text h1 {
       font-size: 2.5rem;
@@ -80,13 +82,8 @@
       font-size: 1.1rem;
       margin-bottom: 24px;
     }
-    .hero-img {
-      flex: 1;
-      text-align: center;
-      min-width: 260px;
-    }
     .hero-img img {
-      max-width: 100%;
+      width: 100%;
       border-radius: 8px;
       box-shadow: 0 0 10px #00aaff;
     }
@@ -180,18 +177,11 @@
       font-size: 0.9rem;
       color: #aaa;
     }
-
-    /* RESPONSIVE */
-    @media (max-width:600px) {
-      .wrapper { padding: 20px; }
-      .hero-text h1 { font-size: 2rem; }
-      .cta { padding: 12px 24px; }
-      .brand { top: 12px; left: 12px; }
-    }
   </style>
 </head>
 <body>
   <div class="wrapper">
+    <!-- LOGO TOP-LEFT -->
     <div class="brand">
       <div class="brand-icon">B</div>
       <div class="brand-text">BizBuild</div>
@@ -200,7 +190,7 @@
     <section class="hero">
       <div class="hero-text">
         <h1>
-          <span class="h1-white">Land Interviews Faster with our AI-</span><br>
+          <span class="h1-white">Land Interviews Faster with AI-</span><br>
           <span class="h1-red">Powered Resume Kit</span>
         </h1>
         <p>Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.</p>
@@ -248,4 +238,3 @@
   </div>
 </body>
 </html>
-```

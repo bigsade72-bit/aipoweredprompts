@@ -14,69 +14,67 @@
       line-height: 1.5;
     }
 
-    /* ELECTRIC FRAME + WRAPPER */
+    /* CENTERED ELECTRIC FRAME */
     .wrapper {
-      position: relative;      /* enable absolute children */
       max-width: 900px;
-      margin: 20px auto 50px;
+      margin: 50px auto;
       padding: 30px;
       background: #111;
       box-shadow: 0 0 20px #00aaff;
       border-radius: 12px;
     }
 
-    /* LOGO TOP-RIGHT */
+    /* BRAND HEADER */
     .brand {
-      position: absolute;
-      top: 20px;
-      right: 20px;
       display: flex;
       align-items: center;
+      margin-bottom: 40px;
     }
     .brand-icon {
-      width: 2.4rem;            /* square */
-      height: 2.4rem;
       background: #ff4444;
       color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.4rem;
       font-weight: bold;
-      border-radius: 4px;
+      font-size: 1.2rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-right: 10px;
     }
     .brand-text {
-      color: #fff;
-      font-size: 1.4rem;
+      color: #ff4444;
+      font-size: 1.2rem;
       font-weight: bold;
-      margin-left: 8px;
     }
 
     /* HERO */
     .hero {
-      text-align: center;
-      margin-bottom: 50px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 60px;
     }
-    .hero h1 {
+    .hero-text {
+      flex: 1;
+      min-width: 260px;
+    }
+    .hero-text h1 {
       font-size: 2.5rem;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .hero h1 .h1-white {
-      color: #fff;
-    }
-    .hero h1 .h1-red {
       color: #ff4444;
+      margin-bottom: 16px;
     }
-    .hero p {
+    .hero-text p {
       font-size: 1.1rem;
       margin-bottom: 24px;
+    }
+    .hero-img {
+      flex: 1;
+      text-align: center;
+      min-width: 260px;
     }
     .hero-img img {
       max-width: 100%;
       border-radius: 8px;
       box-shadow: 0 0 10px #00aaff;
-      margin-top: 20px;
     }
 
     /* CTA BUTTON */
@@ -90,7 +88,6 @@
       border-radius: 6px;
       box-shadow: 0 0 10px #ff4444;
       transition: box-shadow 0.3s ease;
-      margin-top: 16px;
     }
     .cta:hover {
       box-shadow: 0 0 20px #ff4444;
@@ -173,15 +170,13 @@
     /* RESPONSIVE */
     @media (max-width:600px) {
       .wrapper { padding: 20px; }
-      .hero h1 { font-size: 2rem; }
+      .hero-text h1 { font-size: 2rem; }
       .cta { padding: 12px 24px; }
-      .brand { top: 12px; right: 12px; }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- LOGO IN THE TOP-RIGHT -->
     <header>
       <div class="brand">
         <div class="brand-icon">B</div>
@@ -190,15 +185,13 @@
     </header>
 
     <section class="hero">
-      <h1>
-        <span class="h1-white">Land Interviews Faster</span><br>
-        <span class="h1-red">With AI-Powered Resume Kit</span>
-      </h1>
-      <p>Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.</p>
-      <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Get Instant Access – $19</a>
-
+      <div class="hero-text">
+        <h1>Land Interviews Faster with AI-Powered Resume Kit</h1>
+        <p>Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.</p>
+        <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Get Instant Access – $19</a>
+      </div>
       <div class="hero-img">
-        <img src="hero-banner.jpg" alt="AI Resume Kit Preview">
+        <img src="hero-banner.jpg" alt="AI Resume Kit Preview" />
       </div>
     </section>
 
@@ -227,12 +220,16 @@
       </details>
       <details>
         <summary>How will I receive my kit?</summary>
-        <p>After purchase, you’ll get instant access via email and in your Podia dashboard.</p>
+        <p>After purchase, you’ll get instant access via email.</p>
       </details>
       <details>
         <summary>Can I edit the files?</summary>
         <p>Absolutely. All docs are fully editable in Google Docs, Word, and Canva.</p>
       </details>
+    </section>
+
+    <section class="pricing">
+      <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Yes, I Want My Resume Kit</a>
     </section>
 
     <footer>© 2025 BizBuild. All rights reserved.</footer>

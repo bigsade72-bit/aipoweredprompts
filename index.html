@@ -5,275 +5,215 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Resume Kit | BizBuild</title>
   <style>
-    /* RESET & BASE */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box }
     body {
-      background: #000;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.5;
+      background:#000; color:#fff;
+      font-family:'Segoe UI',sans-serif;
     }
-
-    /* ELECTRIC FRAME + WRAPPER */
     .wrapper {
-      position: relative;
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #111;
-      box-shadow: 0 0 20px #00aaff;
-      border-radius: 12px;
+      max-width:900px;
+      margin:50px auto;
+      padding:30px;
+      background:#111;
+      box-shadow:0 0 20px #00aaff;
+      border-radius:12px;
     }
-
-    /* LOGO + HEADLINE SIZING */
     .brand {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      align-items: center;
+      display:flex; align-items:center;
     }
     .brand-icon {
-      width: 2.4rem;
-      height: 2.4rem;
-      background: #ff4444;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.4rem;
-      font-weight: bold;
-      border-radius: 4px;
+      width:2rem; height:2rem;
+      background:#ff4444; color:#fff;
+      font-size:1.2rem; font-weight:bold;
+      display:flex; justify-content:center; align-items:center;
+      border-radius:4px;
     }
     .brand-text {
-      color: #fff;
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-left: 0.5rem;
+      font-size:1.2rem; font-weight:bold;
+      margin-left:0.5rem;
     }
-
     .hero {
-      margin-top: 60px;        /* push down under logo */
-      margin-bottom: 40px;
-      text-align: center;
+      margin-top:20px;
+      margin-bottom:40px;
+      text-align:center;
     }
     .hero h1 {
-      font-size: 2rem;
-      line-height: 1.2;
-      margin-bottom: 24px;
+      font-size:1.8rem;
+      line-height:1.2;
+      margin-bottom:24px;
     }
-    .hero h1 .h1-white { color: #fff; }
-    .hero h1 .h1-red   { color: #ff4444; }
-    .hero-img img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00aaff;
-      margin: 30px 0;        /* space before paragraph */
-    }
+    .hero h1 .white { color:#fff }
+    .hero h1 .red   { color:#ff4444 }
     .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 24px;
+      margin-top:30px;
+      font-size:1.1rem;
+      margin-bottom:24px;
     }
-
-    /* CTA BUTTON */
     .cta {
-      display: inline-block;
-      background: #ff4444;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 14px 28px;
-      border-radius: 6px;
-      box-shadow: 0 0 10px #ff4444;
-      transition: box-shadow 0.3s ease;
+      display:inline-block;
+      background:#ff4444; color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      padding:14px 28px;
+      border-radius:6px;
+      box-shadow:0 0 10px #ff4444;
+      transition:box-shadow .3s;
     }
-    .cta:hover { box-shadow: 0 0 20px #ff4444; }
-
-    /* FEATURES GRID */
+    .cta:hover { box-shadow:0 0 20px #ff4444 }
     .features {
-      margin-bottom: 60px;
+      margin-bottom:60px;
     }
     .features h2 {
-      font-size: 1.8rem;
-      color: #ff4444;
-      margin-bottom: 20px;
-      text-align: center;
+      font-size:1.8rem; color:#ff4444;
+      text-align:center; margin-bottom:20px;
     }
     .feature-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
     }
-    .feature-item {
-      background: #222;
-      border-radius: 8px;
-      box-shadow: 0 0 8px #00aaff;
-      overflow: hidden;
+    .feature-item details {
+      background:#222;
+      border-radius:8px;
+      box-shadow:0 0 8px #00aaff;
+      overflow:hidden;
     }
     .feature-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 16px 20px;
-      font-size: 1rem;
-      position: relative;
-      color: #fff;
-      font-weight: bold;
+      list-style:none; cursor:pointer;
+      padding:16px 20px;
+      position:relative;
+      font-weight:bold; color:#fff;
     }
     .feature-item summary::before {
-      content: '✔';
-      color: #ff4444;
-      margin-right: 8px;
+      content:'✔'; color:#ff4444;
+      margin-right:8px;
     }
     .feature-item summary::after {
-      content: '▼';
-      position: absolute;
-      right: 20px;
-      color: #aaa;
-      transition: transform 0.2s;
+      content:'▼';
+      position:absolute; right:20px;
+      color:#aaa;
+      transition:transform .2s;
     }
     .feature-item[open] summary::after {
-      transform: rotate(-180deg);
+      transform:rotate(-180deg);
     }
     .feature-item p {
-      padding: 0 20px 16px;
-      font-size: 0.95rem;
-      color: #ccc;
+      padding:0 20px 16px;
+      color:#ccc; font-size:.95rem;
     }
-
-    /* PRICING */
     .pricing {
-      text-align: center;
-      margin-bottom: 60px;
+      text-align:center; margin-bottom:60px;
     }
     .pricing h2 {
-      font-size: 1.8rem;
-      color: #ff4444;
-      margin-bottom: 10px;
+      font-size:1.8rem; color:#ff4444;
+      margin-bottom:10px;
     }
     .pricing .price {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size:2.5rem; margin-bottom:20px;
     }
-
-    /* FAQ */
     .faq {
-      margin-bottom: 40px;
+      margin-bottom:40px;
     }
     .faq h2 {
-      font-size: 1.8rem;
-      color: #ff4444;
-      margin-bottom: 20px;
-      text-align: center;
+      font-size:1.8rem; color:#ff4444;
+      text-align:center; margin-bottom:20px;
     }
     .faq details {
-      background: #222;
-      border-radius: 6px;
-      padding: 15px 20px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 8px #00aaff;
+      background:#222;
+      border-radius:6px;
+      padding:15px 20px;
+      margin-bottom:10px;
+      box-shadow:0 0 8px #00aaff;
     }
     .faq summary {
-      cursor: pointer;
-      font-weight: bold;
-      color: #fff;
+      cursor:pointer;
+      font-weight:bold;
+      color:#fff;
     }
     .faq p {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      color: #ccc;
+      margin-top:10px;
+      color:#ccc;
+      font-size:.95rem;
     }
-
-    /* FOOTER */
     footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #aaa;
+      text-align:center;
+      color:#aaa;
+      font-size:.9rem;
+      margin-top:50px;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
 
-    <!-- logo -->
+    <!-- Start Header -->
     <div class="brand">
       <div class="brand-icon">B</div>
       <div class="brand-text">BizBuild</div>
     </div>
-
-    <!-- hero -->
     <section class="hero">
       <h1>
-        <span class="h1-white">Land Interviews Faster</span><br>
-        <span class="h1-red">Powered Resume Kit</span>
+        <span class="white">Land Interviews Faster</span><br>
+        <span class="red">with AI-Powered Resume Kit</span>
       </h1>
-      <div class="hero-img">
-        <img src="hero-banner.jpg" alt="AI Resume Kit Preview">
-      </div>
-      <p>
-        Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.
-      </p>
+      <p>Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.</p>
       <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Get Instant Access – $19</a>
     </section>
+    <!-- End Header -->
 
-    <!-- features -->
+    <!-- Start What’s Inside -->
     <section class="features">
       <h2>What’s Inside</h2>
       <div class="feature-list">
-
         <div class="feature-item">
           <details>
             <summary>ATS-Optimized Resume Templates</summary>
             <p>Three modern layouts, industry-specific examples, built-in ATS keywords.</p>
           </details>
         </div>
-
         <div class="feature-item">
           <details>
             <summary>Plug-and-Play Cover Letter</summary>
             <p>Adaptive structure, persuasive opening lines, customization prompts.</p>
           </details>
         </div>
-
         <div class="feature-item">
           <details>
             <summary>LinkedIn Optimization Guide</summary>
             <p>Headline formulas, profile checklist, engagement scripts for recruiters.</p>
           </details>
         </div>
-
         <div class="feature-item">
           <details>
             <summary>Job Application Tracker</summary>
             <p>Track company, role, date applied, status, follow-ups, and recruiter contacts.</p>
           </details>
         </div>
-
         <div class="feature-item">
           <details>
             <summary>ChatGPT Prompt Pack</summary>
             <p>20+ prompts for resume rewriting, cover letter tweaks, interview simulations.</p>
           </details>
         </div>
-
         <div class="feature-item">
           <details>
             <summary>Interview success Blueprint eBook</summary>
             <p>Special Topics<br>Personal Growth<br>Motivation<br>Career Development</p>
           </details>
         </div>
-
       </div>
     </section>
+    <!-- End What’s Inside -->
 
-    <!-- pricing -->
+    <!-- Start Pricing -->
     <section class="pricing">
       <h2>All Yours for One Price</h2>
       <div class="price">$19</div>
       <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Buy Now</a>
     </section>
+    <!-- End Pricing -->
 
-    <!-- faq -->
+    <!-- Start FAQ -->
     <section class="faq">
       <h2>Frequently Asked Questions</h2>
       <details>
@@ -282,16 +222,19 @@
       </details>
       <details>
         <summary>How will I receive my kit?</summary>
-        <p>After purchase, you’ll get instant access via email.</p>
+        <p>After purchase, you’ll get instant access via email and in your Podia dashboard.</p>
       </details>
       <details>
         <summary>Can I edit the files?</summary>
         <p>Absolutely. All docs are fully editable in Google Docs, Word, and Canva.</p>
       </details>
     </section>
+    <!-- End FAQ -->
 
-    <!-- footer -->
+    <!-- Start Footer -->
     <footer>© 2025 BizBuild. All rights reserved.</footer>
+    <!-- End Footer -->
+
   </div>
 </body>
 </html>

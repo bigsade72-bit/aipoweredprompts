@@ -14,8 +14,9 @@
       line-height: 1.5;
     }
 
-    /* CENTERED ELECTRIC FRAME */
+    /* ELECTRIC FRAME + WRAPPER */
     .wrapper {
+      position: relative;
       max-width: 900px;
       margin: 50px auto;
       padding: 30px;
@@ -24,25 +25,31 @@
       border-radius: 12px;
     }
 
-    /* BRAND HEADER */
+    /* LOGO TOP-LEFT */
     .brand {
+      position: absolute;
+      top: 20px;
+      left: 20px;
       display: flex;
       align-items: center;
-      margin-bottom: 40px;
     }
     .brand-icon {
+      width: 2.4rem;
+      height: 2.4rem;
       background: #ff4444;
       color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem;
       font-weight: bold;
-      font-size: 1.2rem;
-      padding: 8px 12px;
-      border-radius: 6px;
-      margin-right: 10px;
+      border-radius: 4px;
     }
     .brand-text {
-      color: #ff4444;
-      font-size: 1.2rem;
+      color: #fff;
+      font-size: 1.4rem;
       font-weight: bold;
+      margin-left: 0.6rem;
     }
 
     /* HERO */
@@ -51,6 +58,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 30px;
+      margin-top: 20px;
       margin-bottom: 60px;
     }
     .hero-text {
@@ -59,8 +67,14 @@
     }
     .hero-text h1 {
       font-size: 2.5rem;
-      color: #ff4444;
+      line-height: 1.2;
       margin-bottom: 16px;
+    }
+    .hero-text h1 .h1-white {
+      color: #fff;
+    }
+    .hero-text h1 .h1-red {
+      color: #ff4444;
     }
     .hero-text p {
       font-size: 1.1rem;
@@ -172,26 +186,28 @@
       .wrapper { padding: 20px; }
       .hero-text h1 { font-size: 2rem; }
       .cta { padding: 12px 24px; }
+      .brand { top: 12px; left: 12px; }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <header>
-      <div class="brand">
-        <div class="brand-icon">B</div>
-        <div class="brand-text">BizBuild</div>
-      </div>
-    </header>
+    <div class="brand">
+      <div class="brand-icon">B</div>
+      <div class="brand-text">BizBuild</div>
+    </div>
 
     <section class="hero">
       <div class="hero-text">
-        <h1>Land Interviews Faster with AI-Powered Resume Kit</h1>
+        <h1>
+          <span class="h1-white">Land Interviews Faster with our AI-</span><br>
+          <span class="h1-red">Powered Resume Kit</span>
+        </h1>
         <p>Plug-and-play resume templates, cover letter, LinkedIn guide, job tracker and ChatGPT prompts—built to beat ATS and impress hiring managers.</p>
         <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Get Instant Access – $19</a>
       </div>
       <div class="hero-img">
-        <img src="hero-banner.jpg" alt="AI Resume Kit Preview" />
+        <img src="hero-banner.jpg" alt="AI Resume Kit Preview">
       </div>
     </section>
 
@@ -220,16 +236,12 @@
       </details>
       <details>
         <summary>How will I receive my kit?</summary>
-        <p>After purchase, you’ll get instant access via email.</p>
+        <p>After purchase, you’ll get instant access via email and in your Podia dashboard.</p>
       </details>
       <details>
         <summary>Can I edit the files?</summary>
         <p>Absolutely. All docs are fully editable in Google Docs, Word, and Canva.</p>
       </details>
-    </section>
-
-    <section class="pricing">
-      <a href="https://hooks.zapier.com/hooks/catch/YOUR-ZAP-ID" class="cta">Yes, I Want My Resume Kit</a>
     </section>
 
     <footer>© 2025 BizBuild. All rights reserved.</footer>

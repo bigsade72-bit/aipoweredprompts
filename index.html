@@ -6,11 +6,7 @@
   <title>AI Resume Kit | BizBuild</title>
   <style>
     /* RESET & BASE */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #000;
       color: #fff;
@@ -38,20 +34,20 @@
       align-items: center;
     }
     .brand-icon {
-      width: 3rem;
-      height: 3rem;
+      width: 2rem;
+      height: 2rem;
       background: #ff4444;
       color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2rem;
+      font-size: 1.2rem;
       font-weight: bold;
       border-radius: 4px;
     }
     .brand-text {
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: bold;
       margin-left: 0.5rem;
     }
@@ -62,7 +58,7 @@
       flex-direction: row;
       align-items: center;
       gap: 30px;
-      margin-top: 20px;
+      margin-top: 80px;
       margin-bottom: 60px;
       overflow-x: auto;
     }
@@ -122,19 +118,39 @@
       grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
       gap: 20px;
     }
-    .feature-item {
+    .feature-item details {
       background: #222;
-      padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 8px #00aaff;
+      overflow: hidden;
     }
-    .feature-item p {
-      font-size: 1rem;
+    .feature-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      position: relative;
+      font-weight: bold;
+      color: #fff;
     }
-    .feature-item p::before {
+    .feature-item summary::before {
       content: '✔';
       color: #ff4444;
       margin-right: 8px;
+    }
+    .feature-item summary::after {
+      content: '▼';
+      position: absolute;
+      right: 20px;
+      color: #aaa;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      transform: rotate(-180deg);
+    }
+    .feature-item p {
+      padding: 0 20px 16px;
+      color: #ccc;
+      font-size: 0.95rem;
     }
 
     /* PRICING */
@@ -181,17 +197,31 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-text,
+      .hero-img {
+        flex: auto;
+        min-width: auto;
+        width: 100%;
+      }
+      .hero-img {
+        margin-top: 30px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- BRANDING -->
+    <!-- Start Header -->
     <div class="brand">
       <div class="brand-icon">B</div>
       <div class="brand-text">BizBuild</div>
     </div>
-
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-text">
         <h1>
@@ -209,21 +239,53 @@
         <img src="hero-banner.jpg" alt="AI Resume Kit Preview">
       </div>
     </section>
+    <!-- End Header -->
 
-    <!-- FEATURES -->
+    <!-- Start What’s Inside -->
     <section class="features">
       <h2>What’s Inside</h2>
       <div class="feature-list">
-        <div class="feature-item"><p>ATS-Optimized Resume Templates</p></div>
-        <div class="feature-item"><p>Plug-and-Play Cover Letter</p></div>
-        <div class="feature-item"><p>LinkedIn Optimization Guide</p></div>
-        <div class="feature-item"><p>Job Application Tracker</p></div>
-        <div class="feature-item"><p>ChatGPT Prompt Pack</p></div>
-        <div class="feature-item"><p>Interview Success Blueprint eBook</p></div>
+        <div class="feature-item">
+          <details>
+            <summary>ATS-Optimized Resume Templates</summary>
+            <p>Three modern layouts, industry-specific examples, built-in ATS keywords.</p>
+          </details>
+        </div>
+        <div class="feature-item">
+          <details>
+            <summary>Plug-and-Play Cover Letter</summary>
+            <p>Adaptive structure, persuasive opening lines, customization prompts.</p>
+          </details>
+        </div>
+        <div class="feature-item">
+          <details>
+            <summary>LinkedIn Optimization Guide</summary>
+            <p>Headline formulas, profile checklist, engagement scripts for recruiters.</p>
+          </details>
+        </div>
+        <div class="feature-item">
+          <details>
+            <summary>Job Application Tracker</summary>
+            <p>Track company, role, date applied, status, follow-ups, and recruiter contacts.</p>
+          </details>
+        </div>
+        <div class="feature-item">
+          <details>
+            <summary>ChatGPT Prompt Pack</summary>
+            <p>20+ prompts for resume rewriting, cover letter tweaks, interview simulations.</p>
+          </details>
+        </div>
+        <div class="feature-item">
+          <details>
+            <summary>Interview Success Blueprint eBook</summary>
+            <p>Special Topics<br>Personal Growth<br>Motivation<br>Career Development</p>
+          </details>
+        </div>
       </div>
     </section>
+    <!-- End What’s Inside -->
 
-    <!-- PRICING -->
+    <!-- Start Pricing -->
     <section class="pricing">
       <h2>All Yours for One Price</h2>
       <div class="price">$19</div>
@@ -231,8 +293,9 @@
         Buy Now
       </a>
     </section>
+    <!-- End Pricing -->
 
-    <!-- FAQ -->
+    <!-- Start FAQ -->
     <section class="faq">
       <h2>Frequently Asked Questions</h2>
       <details>
@@ -248,12 +311,25 @@
         <p>Absolutely. All docs are fully editable in Google Docs, Word, and Canva.</p>
       </details>
     </section>
+    <!-- End FAQ -->
 
-    <!-- FOOTER -->
+    <!-- Start Footer -->
     <footer>
       © 2025 BizBuild. All rights reserved.
     </footer>
+    <!-- End Footer -->
   </div>
+
+  <!-- Start Dropdown Script -->
+  <script>
+    const allDetails = document.querySelectorAll('.feature-item details');
+    allDetails.forEach(det => {
+      det.addEventListener('toggle', () => {
+        const openState = det.open;
+        allDetails.forEach(d => d.open = openState);
+      });
+    });
+  </script>
+  <!-- End Dropdown Script -->
 </body>
 </html>
-```
